@@ -47,6 +47,7 @@ header {
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
+  transition: transform 500ms;
 }
 
 .card img {
@@ -68,6 +69,7 @@ header {
   opacity: 0;
   color: #fff;
   padding: 30px 15px;
+  transition: opacity 1s;
 }
 
 .info_text {
@@ -76,6 +78,11 @@ header {
 
 .key {
   font-weight: 700;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  z-index: 2;
 }
 
 .card:hover img {
