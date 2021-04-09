@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!-- Axios -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
   <!-- Vue js -->
@@ -14,10 +17,10 @@
 <body>
   <div id="app">
     <header>
-      <h1>BOOLFLIX</h1>
+      <img class="logo" src="img/boolflix.png" alt="Logo">
       <div class="search_bar">
-        <input type="text" v-model="querySearch">
-        <button type="button" @click="searchMovie">Cerca</button>
+        <input type="text" v-model="querySearch" @keyup.enter="searchMovie" placeholder="Cosa vuoi vedere oggi?">
+        <button class="btn" type="button" @click="searchMovie">Cerca</button>
       </div>
     </header>
     <main>
@@ -25,11 +28,11 @@
         <div v-for="movie in movies" class="card">
           <img :src="'https://image.tmdb.org/t/p/w400' + movie.poster_path" :alt="movie.title">
           <div class="info">
-            <span>Titolo:{{movie.title}}</span>
-            <span>Titolo originale:{{movie.original_title}}</span>
-            <span>Lingua:{{movie.original_language}}</span>
-            <span>Voto:{{movie.vote_average}}</span>
-            <span>Overview:{{movie.overview}}</span>
+            <span class="info_text"><span class="key">Titolo:</span> {{movie.title}}</span>
+            <span class="info_text"><span class="key">Titolo originale:</span> {{movie.original_title}}</span>
+            <span class="info_text"><span class="key">Lingua:</span> {{movie.original_language}}</span>
+            <span class="info_text"><span class="key">Voto:</span> {{movie.vote_average}}</span>
+            <span class="info_text"><span class="key">Overview:</span> {{movie.overview}}</span>
           </div>
         </div>
       </div>
