@@ -25,7 +25,7 @@
     </header>
     <main>
       <div class="wrapper">
-        <div v-for="movie in movies" class="card">
+        <div v-if="movie.poster_path !== null" v-for="movie in movies" class="card">
           <img :src="'https://image.tmdb.org/t/p/w400' + movie.poster_path" :alt="movie.title">
           <div class="info">
             <span class="info_text"><span class="key">Titolo:</span> {{movie.title}}</span>
@@ -35,7 +35,7 @@
             <span class="info_text"><span class="key">Overview:</span> {{movie.overview}}</span>
           </div>
         </div>
-        <div v-for="serie in series" class="card">
+        <div v-if="serie.poster_path !== null" v-for="serie in series" class="card">
           <img :src="'https://image.tmdb.org/t/p/w400' + serie.poster_path" :alt="serie.name">
           <div class="info">
             <span class="info_text"><span class="key">Titolo:</span> {{serie.name}}</span>

@@ -86,7 +86,7 @@ header {
 }
 
 .card:hover img {
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
 .card:hover .info {
