@@ -40,7 +40,7 @@
             <span class="info_text">
               <span class="key">Voto:</span>
               <span v-for="index in movie.vote_average"><i class="fas fa-star"></i></span>
-              <span v-for="index in (5 - movie.vote_average)"><i class="far fa-star"></i></span>
+              <span class="empty_stars" v-for="index in (5 - movie.vote_average)"><i class="far fa-star"></i></span>
             </span>
             <span class="info_text"><span v-if="movie.overview" class="key">Overview:</span> {{movie.overview}}</span>
           </div>
@@ -56,7 +56,7 @@
               <span v-else>{{serie.original_language}}</span>
             </span>
             <span class="info_text"><span class="key">Voto:</span> <span v-for="index in serie.vote_average"><i class="fas fa-star"></i></span>
-            <span v-for="index in (5 - serie.vote_average)"><i class="far fa-star"></i></span>
+            <span class="empty_stars" v-for="index in (5 - serie.vote_average)"><i class="far fa-star"></i></span>
             </span>
             <span class="info_text"><span v-if="serie.overview" class="key">Overview:</span> {{serie.overview}}</span>
           </div>

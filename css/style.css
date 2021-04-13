@@ -80,6 +80,10 @@ header {
   font-weight: 700;
 }
 
+.empty_stars{
+  margin-left: -3px;
+}
+
 .lang {
   vertical-align: top;
 }
