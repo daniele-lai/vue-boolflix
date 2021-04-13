@@ -3,6 +3,9 @@ var app = new Vue ({
   data: {
     movies: [],
     series: [],
+    flags: [
+      "ar","cn","da","de","en","es","fr","he","hi","it","ja","ko","pt","ru","sv"
+    ],
     querySearch: ""
   },
   methods: {
