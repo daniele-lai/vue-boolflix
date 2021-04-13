@@ -20,6 +20,9 @@ var app = new Vue ({
       })
       .then((response) => {
         this.movies = response.data.results;
+        for (var i = 0; i < this.movies.length; i++) {
+          this.movies[i].vote_average = parseInt(this.movies[i].vote_average/2);
+        }
         this.querySearch = "";
       })
     },
@@ -34,6 +37,9 @@ var app = new Vue ({
       })
       .then((response) => {
         this.series = response.data.results;
+        for (var i = 0; i < this.series.length; i++) {
+          this.series[i].vote_average = parseInt(this.series[i].vote_average/2);
+        }
         this.querySearch = "";
       })
     }

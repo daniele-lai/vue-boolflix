@@ -7,6 +7,8 @@
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
   <!-- Axios -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
   <!-- Vue js -->
@@ -35,8 +37,13 @@
               <img v-if="flags.includes(movie.original_language)" class="flag" :src="'img/Flags/'+ movie.original_language +'.png'">
               <span v-else>{{movie.original_language}}</span>
             </span>
-            <span class="info_text"><span class="key">Voto:</span> {{movie.vote_average}}</span>
-            <span class="info_text"><span class="key">Overview:</span> {{movie.overview}}</span>
+            <span class="info_text">
+              <span class="key">Voto:</span>
+              {{movie.vote_average}}
+              <span v-for="index in movie.vote_average"><i class="fas fa-star"></i></span>
+              <span v-for="index in (5 - movie.vote_average)"><i class="far fa-star"></i></span>
+            </span>
+            <span class="info_text"><span v-if="movie.overview" class="key">Overview:</span> {{movie.overview}}</span>
           </div>
         </div>
         <div v-if="serie.poster_path !== null" v-for="serie in series" class="card">
@@ -49,8 +56,10 @@
               <img v-if="flags.includes(serie.original_language)" class="flag" :src="'img/Flags/'+ serie.original_language +'.png'">
               <span v-else>{{serie.original_language}}</span>
             </span>
-            <span class="info_text"><span class="key">Voto:</span> {{serie.vote_average}}</span>
-            <span class="info_text"><span class="key">Overview:</span> {{serie.overview}}</span>
+            <span class="info_text"><span class="key">Voto:</span> <span v-for="index in serie.vote_average"><i class="fas fa-star"></i></span>
+            <span v-for="index in (5 - serie.vote_average)"><i class="far fa-star"></i></span>
+            </span>
+            <span class="info_text"><span v-if="serie.overview" class="key">Overview:</span> {{serie.overview}}</span>
           </div>
         </div>
       </div>
